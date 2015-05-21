@@ -1,4 +1,4 @@
-<p>Yo!</p>
+<p>Yo [firstName]!</p>
 <p>Check it out!  This was sent with PowerPhish, my new script!</p>
 <p>This should make phishin a breeze!  Just create a file of targets, and a file with your emial body, change some variables in the script to work with your email server, and WHAMMO!  InstaPhishing!</p>
 <p>   L0gan</p>
@@ -7,3 +7,5 @@
 <br>
 <br>
 <p>*Stress free life is not guaranteed.  May cause sweating, diarrhea, or, in some cases, death.</p>
+
+<h4>This message is intended for [firstName] [lastName].</h4>

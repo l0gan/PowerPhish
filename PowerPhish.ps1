@@ -44,12 +44,16 @@ $BodyFile = "emailBody.txt"
 $SubjectLine = "Password Expiration Notice"
 $Pass  = "$up3r$3cr3tP@ss"
 
-					
 # Start Loop for Email Sending
 $file = Get-Content $DestFile
 $body = Get-Content $BodyFile
+					
+foreach ($line in $file){
+	$DestinationRCPT = $line.Split(",")[0]
+	$firstName = $line.Split(",")[1]
+	$lastName = $line.Split(",")[2]
 
-foreach ($DestinationRCPT in $file){
+	$body =(Get-Content $BodyFile) | foreach-object {$_ -replace '\[firstName\]',$firstName}| foreach-object {$_ -replace '\[lastName\]',$lastName}
 	$emailSmtpUser = "$SourceRCPT"
 	$emailSmtpPass = "$Pass"
 	
@@ -60,8 +64,7 @@ foreach ($DestinationRCPT in $file){
 	$emailMessage.Subject = $SubjectLine
 	$emailMessage.IsBodyHtml = $true
 	$emailMessage.Body = $body
-	
-	
+
 	$SMTPClient = New-Object System.Net.Mail.SmtpClient( $emailSmtpServer , $emailSmtpServerPort )
 	$SMTPClient.EnableSsl = $true
 	$SMTPClient.Credentials = New-Object System.Net.NetworkCredential( $emailSmtpUser.Split("@")[0] , $emailSmtpPass ); 

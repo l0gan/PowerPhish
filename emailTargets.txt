@@ -1,2 +1,2 @@
-email@example.com
-another.email@example.com
+email@example.com,John,Doe
+another.email@example.com,Jane,Smith

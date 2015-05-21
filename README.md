@@ -25,3 +25,11 @@
  	SubjectLine = Line for subject
 	Pass = Password for authenticating to mail server
  ------------------------------------------------------------------------------
+
+Dest File (emailTargets.txt by default)<br>
+	format:  emailaddress,firstname,lastname<br>
+	i.e., jdoe@example.com,John,Doe
+
+For bodyFile (emailBody.txt by default) use [firstName] to insert First Name from DestFile (emailTargets.txt by default) and [lastName] to insert Last Name.
+
+Sample files are included.
